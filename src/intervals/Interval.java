@@ -30,13 +30,13 @@ public class Interval {
 		switch(this.opening){
 	    case BOTH_OPENED: 
 	    				switch(interval.getOpening()){
-						case BOTH_OPENED: if  ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
-							                    &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())))
-							                      return true;
-						case LEFT_OPENED: if  ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
-			                                  &&((this.includes(interval.getMax()))))  
-		                                   return true;
-							              break;	            
+						case BOTH_OPENED: return ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
+							                    &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+							                     
+						case LEFT_OPENED: return((this.includes(interval.getMin())||this.getMin()==interval.getMin())
+			                                  &&((this.includes(interval.getMax()))));  
+		                                  
+							                        
 						case RIGHT_OPENED:break;
 						case UNOPENED: break;
 						default: return false;
