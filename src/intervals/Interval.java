@@ -37,12 +37,14 @@ public class Interval {
 			                                  &&((this.includes(interval.getMax()))));  
 		                                  
 							                        
-						case RIGHT_OPENED:break;
-						case UNOPENED: break;
+						case RIGHT_OPENED:return ((this.includes(interval.getMin()))
+			                              &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+						case UNOPENED: return (this.includes(interval.getMin())
+								             &&(this.includes(interval.getMax())));
 						default: return false;
 	    				}
 			
-			            break;
+			           
 			              
 		case LEFT_OPENED: return true;	            
 		case RIGHT_OPENED: return true;
