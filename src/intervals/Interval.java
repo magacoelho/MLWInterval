@@ -44,17 +44,30 @@ public class Interval {
 		case LEFT_OPENED: 
 						switch(interval.getOpening()){
 							case BOTH_OPENED:return((this.includes(interval.getMin())||this.getMin()==interval.getMin())
-	                                  &&((this.includes(interval.getMax()))));
+	                                         &&((this.includes(interval.getMax()))));
 								             
 							case LEFT_OPENED: return ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
-				                    &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));  
+				                              &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));  
 				        	case RIGHT_OPENED:return ((this.includes(interval.getMin()))
 				                              &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
 							case UNOPENED: return (this.includes(interval.getMin())
-									             &&(this.includes(interval.getMax())));
-						default: return false;
+									        &&(this.includes(interval.getMax())));
+							default: return false;
 						}	            
-		case RIGHT_OPENED: return true;
+		case RIGHT_OPENED: 
+						switch(interval.getOpening()){
+							case BOTH_OPENED: return ((this.includes(interval.getMin()))
+		                                 &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+								
+								             
+							case LEFT_OPENED:return (this.includes(interval.getMin())
+						                         &&(this.includes(interval.getMax())));   
+				        	case RIGHT_OPENED: return((this.includes(interval.getMin()))
+		                                          &&((this.includes(interval.getMax()))||this.getMax()==interval.getMax()));
+							case UNOPENED: return  ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
+		                              &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+							default: return false;
+					}
 		case UNOPENED: return true;
 		}
 		return false;
