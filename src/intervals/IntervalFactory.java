@@ -3,9 +3,8 @@ package intervals;
 
 public class IntervalFactory {
 
-	public static Interval getInterval(int i, int j, Opening bothOpened) {
-		// TODO Auto-generated method stub
-		return null;
+	public static Interval getInterval(double min, double max, Opening opening) {
+		return new Interval(min, max,opening);
 	}
 
 }
