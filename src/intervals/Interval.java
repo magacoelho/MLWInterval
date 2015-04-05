@@ -12,12 +12,18 @@ public class Interval {
 	}
 
 	public double midPoint() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+		return  (this.max+this.min)/2.0;
 	}
 
 	public boolean includes(double value) {
-		// TODO Auto-generated method stub
+		switch(this.opening){
+		case LEFT_OPENED:break;
+		
+		
+		
+		
+		}
 		return false;
 	}
 
