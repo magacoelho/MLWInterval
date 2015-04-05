@@ -5,10 +5,10 @@ public class Interval {
 	 private double max;
 	 private Opening opening;
 
-	public Interval(double min, double max, Opening opening) {
+	public Interval(double min, double max) {
 		this.min=min;
 		this.max=max;
-		this.opening=opening;
+		
 	}
 
 	public double midPoint() {

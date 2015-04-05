@@ -2,9 +2,11 @@ package intervals;
 
 public class IntervalUnopened extends Interval{
 
-	public IntervalUnopened(double min, double max, Opening opening) {
-		super(min, max, opening);
+	public IntervalUnopened(double min, double max) {
+		super(min, max);
 		// TODO Auto-generated constructor stub
 	}
+
+	
 
 }
