@@ -20,10 +20,8 @@ public class Interval {
 		switch(this.opening){
 		case BOTH_OPENED:return this.min<value&& this.max>value;
 		case LEFT_OPENED: return this.min<value&&this.max>=value;	            
-		
-		
-		
-		
+		case RIGHT_OPENED: return this.min<=value&& this.max>value;
+		case UNOPENED: return this.min<=value&& this.max>=value;
 		}
 		return false;
 	}
