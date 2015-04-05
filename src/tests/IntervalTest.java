@@ -198,7 +198,7 @@ public class IntervalTest {
 
 	}
 
-	//@Test
+	@Test
 	public void hasIntersectionTest() {
 
 		Interval bothOpenedPivot = IntervalFactory.getInterval(20, 40, Opening.BOTH_OPENED);
@@ -371,7 +371,7 @@ public class IntervalTest {
 
 	}
 
-	//@Test
+//@Test
 	public void intersectionTest() {
 		
 		 Interval bothOpenedPivot = IntervalFactory.getInterval(20, 50, Opening.BOTH_OPENED);
