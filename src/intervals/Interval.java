@@ -27,7 +27,7 @@ public class Interval {
 	}
 
 	public boolean includes(Interval interval) {
-		switch(this.opening){
+		switch(this.opening){ 
 	    case BOTH_OPENED: 
 	    				switch(interval.getOpening()){
 							case BOTH_OPENED: return ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
