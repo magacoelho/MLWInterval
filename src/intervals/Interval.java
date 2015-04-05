@@ -64,11 +64,23 @@ public class Interval {
 						                         &&(this.includes(interval.getMax())));   
 				        	case RIGHT_OPENED: return((this.includes(interval.getMin()))
 		                                          &&((this.includes(interval.getMax()))||this.getMax()==interval.getMax()));
-							case UNOPENED: return  ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
-		                              &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+							case UNOPENED: return (this.includes(interval.getMin())
+			                         &&(this.includes(interval.getMax())));   
 							default: return false;
-					}
-		case UNOPENED: return true;
+					      }
+		case UNOPENED:
+						switch(interval.getOpening()){
+						case BOTH_OPENED:return (this.includes(interval.getMin())
+		                         &&(this.includes(interval.getMax())));   
+							
+							             
+						case LEFT_OPENED:
+				    	case RIGHT_OPENED: return((this.includes(interval.getMin()))
+				                              &&((this.includes(interval.getMax()))||this.getMax()==interval.getMax()));
+						case UNOPENED: return (this.includes(interval.getMin())
+				                 &&(this.includes(interval.getMax())));   
+						default: return false;
+      }
 		}
 		return false;
 	}
