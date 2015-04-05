@@ -28,7 +28,16 @@ public class Interval {
 
 	public boolean includes(Interval interval) {
 		switch(this.opening){
-		case BOTH_OPENED:return this.min<value&& this.max>value;
+	    case BOTH_OPENED: 
+	    				switch(this.opening){
+						case BOTH_OPENED: (this.include(interval.min)&&this.include(interval.max)) || this.min==interval.get&& this.max>value;
+						case LEFT_OPENED: return this.min<value&&this.max>=value;	            
+						case RIGHT_OPENED: return this.min<=value&& this.max>value;
+						case UNOPENED: return this.min<=value&& this.max>=value;
+	    				}
+			
+			
+			              return this.min<value&& this.max>value;
 		case LEFT_OPENED: return this.min<value&&this.max>=value;	            
 		case RIGHT_OPENED: return this.min<=value&& this.max>value;
 		case UNOPENED: return this.min<=value&& this.max>=value;
@@ -75,6 +84,36 @@ public class Interval {
 		if (opening != other.opening)
 			return false;
 		return true;
+	}
+
+	public double getMin() {
+		return min;
+	}
+
+	public void setMin(double min) {
+		this.min = min;
+	}
+
+	public double getMax() {
+		return max;
+	}
+
+	public void setMax(double max) {
+		this.max = max;
+	}
+
+	public Opening getOpening() {
+		return opening;
+	}
+
+	public void setOpening(Opening opening) {
+		this.opening = opening;
+	}
+
+	@Override
+	public String toString() {
+		return "Interval [min=" + min + ", max=" + max + ", opening=" + opening
+				+ "]";
 	}
 	
     
