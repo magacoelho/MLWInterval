@@ -27,15 +27,17 @@ public class Interval {
 	}
 
 	public boolean includes(Interval interval) {
+		
+		boolean equalsMaxs = this.getMax()==interval.getMax();
 		switch(this.opening){ 
 	    case BOTH_OPENED: 
 	    				switch(interval.getOpening()){
 							case BOTH_OPENED: return ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
-								                    &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+								                    &&((this.includes(interval.getMax())||equalsMaxs)));
 							case LEFT_OPENED: return((this.includes(interval.getMin())||this.getMin()==interval.getMin())
 				                                  &&((this.includes(interval.getMax()))));  
 			             	case RIGHT_OPENED:return ((this.includes(interval.getMin()))
-				                              &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+				                              &&((this.includes(interval.getMax())||equalsMaxs)));
 							case UNOPENED: return (this.includes(interval.getMin())
 									             &&(this.includes(interval.getMax())));
 							default: return false;
@@ -47,9 +49,9 @@ public class Interval {
 	                                         &&((this.includes(interval.getMax()))));
 								             
 							case LEFT_OPENED: return ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
-				                              &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));  
+				                              &&((this.includes(interval.getMax())||equalsMaxs)));  
 				        	case RIGHT_OPENED:return ((this.includes(interval.getMin()))
-				                              &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+				                              &&((this.includes(interval.getMax())||equalsMaxs)));
 							case UNOPENED: return (this.includes(interval.getMin())
 									        &&(this.includes(interval.getMax())));
 							default: return false;
@@ -57,13 +59,13 @@ public class Interval {
 		case RIGHT_OPENED: 
 						switch(interval.getOpening()){
 							case BOTH_OPENED: return ((this.includes(interval.getMin()))
-		                                 &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())));
+		                                 &&((this.includes(interval.getMax())||equalsMaxs)));
 								
 								             
 							case LEFT_OPENED:return (this.includes(interval.getMin())
 						                         &&(this.includes(interval.getMax())));   
 				        	case RIGHT_OPENED: return((this.includes(interval.getMin()))
-		                                          &&((this.includes(interval.getMax()))||this.getMax()==interval.getMax()));
+		                                          &&((this.includes(interval.getMax()))||equalsMaxs));
 							case UNOPENED: return (this.includes(interval.getMin())
 			                         &&(this.includes(interval.getMax())));   
 							default: return false;
@@ -76,7 +78,7 @@ public class Interval {
 							             
 						case LEFT_OPENED:
 				    	case RIGHT_OPENED: return((this.includes(interval.getMin()))
-				                              &&((this.includes(interval.getMax()))||this.getMax()==interval.getMax()));
+				                              &&((this.includes(interval.getMax()))||equalsMaxs));
 						case UNOPENED: return (this.includes(interval.getMin())
 				                 &&(this.includes(interval.getMax())));   
 						default: return false;
