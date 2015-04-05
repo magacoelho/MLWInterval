@@ -60,19 +60,47 @@ public class Interval {
 					      }
 		case UNOPENED:
 						switch(interval.getOpening()){
-						case BOTH_OPENED:return (includeMin &&includeMax);   
-						case LEFT_OPENED:return (includeMin &&includeMax);
-				    	case RIGHT_OPENED: return(includeMin &&includeMax);
-						case UNOPENED: return (includeMin &&includeMax);   
-						default: return false;
-      }
+							case BOTH_OPENED:return (includeMin &&includeMax);   
+							case LEFT_OPENED:return (includeMin &&includeMax);
+					    	case RIGHT_OPENED: return(includeMin &&includeMax);
+							case UNOPENED: return (includeMin &&includeMax);   
+							default: return false;
+                         }
 		}
 		return false;
 	}
 
 	public boolean intersectsWith(Interval interval) {
-		// TODO Auto-generated method stub
-		return false;
+		if (minimum == interval.maximum) {
+			switch (opening) {
+			case BOTH_OPENED:
+			case LEFT_OPENED:
+				return false;
+			case RIGHT_OPENED:
+			case UNOPENED:
+				return interval.opening == Opening.LEFT_OPENED ||
+						interval.opening == Opening.UNOPENED;
+			default:
+				assert false;
+				return false;
+			}
+		}
+		if (maximum == interval.minimum) {
+			switch (opening) {
+			case BOTH_OPENED:
+			case RIGHT_OPENED:
+				return false;
+			case LEFT_OPENED:
+			case UNOPENED:
+				return interval.opening == Opening.RIGHT_OPENED ||
+						interval.opening == Opening.UNOPENED;
+			default:
+				assert false;
+				return false;
+			}
+		}
+		return this.includes(interval.minimum)
+				|| this.includes(interval.maximum);
 	}
 
 	public Interval intersection(Interval interval) {
