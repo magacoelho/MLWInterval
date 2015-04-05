@@ -35,55 +35,36 @@ public class Interval {
 		switch(this.opening){ 
 	    case BOTH_OPENED: 
 	    				switch(interval.getOpening()){
-							case BOTH_OPENED: return ((includeMin||equalsMins)
-								                    &&((this.includes(interval.getMax())||equalsMaxs)));
-							case LEFT_OPENED: return((includeMin||equalsMins)
-				                                  &&((this.includes(interval.getMax()))));  
-			             	case RIGHT_OPENED:return ((includeMin)
-				                              &&((this.includes(interval.getMax())||equalsMaxs)));
-							case UNOPENED: return (includeMin
-									             &&(this.includes(interval.getMax())));
+							case BOTH_OPENED: return ((includeMin||equalsMins) &&((includeMax||equalsMaxs)));
+							case LEFT_OPENED: return((includeMin||equalsMins)  &&((includeMax)));  
+			             	case RIGHT_OPENED:return ((includeMin) &&((includeMax||equalsMaxs)));
+							case UNOPENED: return (includeMin &&(includeMax));
 							default: return false;
 	    				}
 			
 		case LEFT_OPENED: 
 						switch(interval.getOpening()){
-							case BOTH_OPENED:return((includeMin||equalsMins)
-	                                         &&((this.includes(interval.getMax()))));
+							case BOTH_OPENED:return((includeMin||equalsMins) &&((includeMax)));
 								             
-							case LEFT_OPENED: return ((includeMin||equalsMins)
-				                              &&((this.includes(interval.getMax())||equalsMaxs)));  
-				        	case RIGHT_OPENED:return ((includeMin)
-				                              &&((this.includes(interval.getMax())||equalsMaxs)));
-							case UNOPENED: return (includeMin
-									        &&(this.includes(interval.getMax())));
+							case LEFT_OPENED: return ((includeMin||equalsMins)&&((includeMax||equalsMaxs)));  
+				        	case RIGHT_OPENED:return ((includeMin) &&((includeMax||equalsMaxs)));
+							case UNOPENED: return (includeMin&&(includeMax));
 							default: return false;
 						}	            
 		case RIGHT_OPENED: 
 						switch(interval.getOpening()){
-							case BOTH_OPENED: return ((includeMin)
-		                                 &&((this.includes(interval.getMax())||equalsMaxs)));
-								
-								             
-							case LEFT_OPENED:return (includeMin
-						                         &&(this.includes(interval.getMax())));   
-				        	case RIGHT_OPENED: return((includeMin)
-		                                          &&((this.includes(interval.getMax()))||equalsMaxs));
-							case UNOPENED: return (includeMin
-			                         &&(this.includes(interval.getMax())));   
+							case BOTH_OPENED: return ((includeMin) &&((includeMax||equalsMaxs)));
+							case LEFT_OPENED:return (includeMin &&(includeMax));   
+				        	case RIGHT_OPENED: return((includeMin) &&((includeMax)||equalsMaxs));
+							case UNOPENED: return (includeMin &&(includeMax));   
 							default: return false;
 					      }
 		case UNOPENED:
 						switch(interval.getOpening()){
-						case BOTH_OPENED:return (includeMin
-		                         &&(this.includes(interval.getMax())));   
-							
-							             
-						case LEFT_OPENED:
-				    	case RIGHT_OPENED: return((includeMin)
-				                              &&((this.includes(interval.getMax()))||equalsMaxs));
-						case UNOPENED: return (includeMin
-				                 &&(this.includes(interval.getMax())));   
+						case BOTH_OPENED:return (includeMin &&(includeMax));   
+						case LEFT_OPENED:return (includeMin &&(includeMax));
+				    	case RIGHT_OPENED: return(includeMin &&includeMax);
+						case UNOPENED: return (includeMin &&(includeMax));   
 						default: return false;
       }
 		}
