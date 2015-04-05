@@ -30,20 +30,33 @@ public class Interval {
 		switch(this.opening){
 	    case BOTH_OPENED: 
 	    				switch(this.opening){
-						case BOTH_OPENED: if  (this.includes(interval.getMin()))
-							                 {if(this.includes(interval.getMax())||this.getMax()==interval.getMax())
-							                	    return true;}
-						                    if  (this.includes(interval.getMin())){}
+						case BOTH_OPENED: if  (this.includes(interval.getMin())){
+							                     if(this.includes(interval.getMax())||this.getMax()==interval.getMax())
+							                	    return true;
+							                     }
+						                    if  (this.includes(interval.getMax())){
+						                    	if(this.includes(interval.getMin())||this.getMin()==interval.getMin())
+							                	    return true;
+							                     }
+						                    if(this.getMin()==interval.getMin()){
+						                    	if(this.includes(interval.getMax())||this.getMax()==interval.getMax())
+							                	    return true;
+							                     }
+						                    if  (this.getMax()==interval.getMax()){
+						                    	if(this.includes(interval.getMin())||this.getMin()==interval.getMin())
+							                	    return true;
+							                     }
+						                    
 						case LEFT_OPENED: break;	            
 						case RIGHT_OPENED:break;
 						case UNOPENED: break;
 	    				}
 			
 			
-			              return this.min<value&& this.max>value;
-		case LEFT_OPENED: return this.min<value&&this.max>=value;	            
-		case RIGHT_OPENED: return this.min<=value&& this.max>value;
-		case UNOPENED: return this.min<=value&& this.max>=value;
+			              
+		case LEFT_OPENED: return true;	            
+		case RIGHT_OPENED: return true;
+		case UNOPENED: return true;
 		}
 		return false;
 	}
