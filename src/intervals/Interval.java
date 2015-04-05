@@ -27,7 +27,12 @@ public class Interval {
 	}
 
 	public boolean includes(Interval interval) {
-		// TODO Auto-generated method stub
+		switch(this.opening){
+		case BOTH_OPENED:return this.min<value&& this.max>value;
+		case LEFT_OPENED: return this.min<value&&this.max>=value;	            
+		case RIGHT_OPENED: return this.min<=value&& this.max>value;
+		case UNOPENED: return this.min<=value&& this.max>=value;
+		}
 		return false;
 	}
 
