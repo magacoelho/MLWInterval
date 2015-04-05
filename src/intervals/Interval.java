@@ -18,8 +18,8 @@ public class Interval {
 
 	public boolean includes(double value) {
 		switch(this.opening){
-		case LEFT_OPENED:return this.min<value&& this.max>value;
-			            
+		case BOTH_OPENED:return this.min<value&& this.max>value;
+		case LEFT_OPENED: return this.min<value&&this.max>=value;	            
 		
 		
 		
