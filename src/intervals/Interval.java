@@ -29,22 +29,17 @@ public class Interval {
 	public boolean includes(Interval interval) {
 		switch(this.opening){
 	    case BOTH_OPENED: 
-	    				switch(this.opening){
-						case BOTH_OPENED: if  (this.includes(interval.getMin())||this.getMin()==interval.getMin()){
-							                     if(this.includes(interval.getMax())||this.getMax()==interval.getMax())
-							                	    return true;
-							                     }
-						                    if  (this.includes(interval.getMax())||this.getMax()==interval.getMax()){
-						                    	if(this.includes(interval.getMin())||this.getMin()==interval.getMin())
-							                	    return true;
-							                     }
-						                  						                    
+	    				switch(interval.getOpening()){
+						case BOTH_OPENED: if  ((this.includes(interval.getMin())||this.getMin()==interval.getMin())
+							                    &&((this.includes(interval.getMax())||this.getMax()==interval.getMax())))
+							                      return true;
 						case LEFT_OPENED: break;	            
 						case RIGHT_OPENED:break;
 						case UNOPENED: break;
+						 default: return false;
 	    				}
 			
-			
+			            break;
 			              
 		case LEFT_OPENED: return true;	            
 		case RIGHT_OPENED: return true;
