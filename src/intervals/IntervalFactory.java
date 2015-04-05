@@ -1,6 +1,5 @@
-package tests;
+package intervals;
 
-import intervals.Opening;
 
 public class IntervalFactory {
 
