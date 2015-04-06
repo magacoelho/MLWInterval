@@ -26,7 +26,7 @@ public class IntervalFactory {
 			
 		}
 		
-		interval.setOpening(opening);
+		
 		return interval;
 	}
 

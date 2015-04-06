@@ -3,8 +3,6 @@ package intervals;
 public abstract class Interval {
 	 private double min;
 	 private double max;
-	 private Opening opening;
-
 	public Interval(double min, double max) {
 		this.min=min;
 		this.max=max;
@@ -17,7 +15,7 @@ public abstract class Interval {
 	}
 
 	public boolean includes(double value) {
-		switch(this.opening){
+		switch(this.getOpening()){
 		case BOTH_OPENED:return this.min<value&& this.max>value;
 		case LEFT_OPENED: return this.min<value&&this.max>=value;	            
 		case RIGHT_OPENED: return this.min<=value&& this.max>value;
@@ -32,7 +30,7 @@ public abstract class Interval {
 		boolean equalsMins = this.getMin()==interval.getMin();
 		boolean includeMin= this.includes(interval.getMin());
 		boolean includeMax = this.includes(interval.getMax());
-		switch(this.opening){ 
+		switch(this.getOpening()){ 
 	    case BOTH_OPENED: 
 	    				switch(interval.getOpening()){
 							case BOTH_OPENED: return ((includeMin||equalsMins) &&(includeMax||equalsMaxs));
@@ -72,7 +70,7 @@ public abstract class Interval {
 
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin() == interval.getMax()) {
-			switch (this.opening) {
+			switch (this.getOpening()) {
 			case BOTH_OPENED:
 			case LEFT_OPENED:
 				return false;
@@ -86,7 +84,7 @@ public abstract class Interval {
 			}
 		}
 		if (this.getMax() == interval.getMin()) {
-			switch (opening) {
+			switch (this.getOpening()) {
 			case BOTH_OPENED:
 			case RIGHT_OPENED:
 				return false;
@@ -117,7 +115,7 @@ public abstract class Interval {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(min);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((opening == null) ? 0 : opening.hashCode());
+		result = prime * result + ((this.getOpening() == null) ? 0 : this.getOpening().hashCode());
 		return result;
 	}
 
@@ -134,7 +132,7 @@ public abstract class Interval {
 			return false;
 		if (Double.doubleToLongBits(min) != Double.doubleToLongBits(other.min))
 			return false;
-		if (opening != other.opening)
+		if (this.getOpening() != other.getOpening())
 			return false;
 		return true;
 	}
@@ -157,13 +155,11 @@ public abstract class Interval {
 
 	public abstract Opening getOpening();
 
-	public void setOpening(Opening opening) {
-		this.opening = opening;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Interval [min=" + min + ", max=" + max + ", opening=" + opening
+		return "Interval [min=" + min + ", max=" + max + ", opening=" + this.getOpening()
 				+ "]";
 	}
 	
