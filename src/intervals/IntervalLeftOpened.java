@@ -19,10 +19,10 @@ public class IntervalLeftOpened extends Interval{
 		
 		
 		switch(interval.getOpening()){
-			case BOTH_OPENED:return((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
-			case LEFT_OPENED: return ((this.minorMinThan(interval)||this.equalsMinsValues(interval))&&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));  
-	    	case RIGHT_OPENED:return (this.minorMinThan(interval) &&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
-			case UNOPENED: return (this.minorMinThan(interval)&&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
+			case BOTH_OPENED:return(this.minorMinOrEquals(interval) && this.greaterMaxOrEquals(interval));
+			case LEFT_OPENED: return (this.minorMinOrEquals(interval)&&this.greaterMaxOrEquals(interval));  
+	    	case RIGHT_OPENED:return (this.minorMinThan(interval) &&this.greaterMaxOrEquals(interval));
+			case UNOPENED: return (this.minorMinThan(interval))||this.equalsMaxValues(interval);
 			default: return false;
 		}	            
 
