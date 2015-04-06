@@ -17,18 +17,25 @@ public class IntervalBothOpened extends Interval{
 
 	public boolean includes(Interval interval) {
 		
-		boolean equalsMaxs = equalsMaxValues(interval);
-		boolean equalsMins = this.getMin()==interval.getMin();
-		boolean menorMin= this.getMin()< interval.getMin();
-		boolean mayorMax = this.getMax()>interval.getMax();
-	
 		switch(interval.getOpening()){
-			case BOTH_OPENED: return ((menorMin||equalsMins) &&(mayorMax||this.equalsMaxValues(interval)));
-			case LEFT_OPENED: return((menorMin||equalsMins)  &&mayorMax);  
-         	case RIGHT_OPENED:return (menorMin &&(mayorMax||this.equalsMaxValues(interval)));
-			case UNOPENED: return (menorMin &&mayorMax);
+			case BOTH_OPENED: return ((this.minorMinThan(interval)||equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
+			case LEFT_OPENED: return((this.minorMinThan(interval)||equalsMinsValues(interval))  &&this.greaterMaxThan(interval));  
+         	case RIGHT_OPENED:return (this.minorMinThan(interval) &&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
+			case UNOPENED: return (this.minorMinThan(interval) &&this.greaterMaxThan(interval));
 			default: return false;
 		}
+	}
+
+	public boolean greaterMaxThan(Interval interval) {
+		return this.getMax()>interval.getMax();
+	}
+
+	public boolean minorMinThan(Interval interval) {
+		return this.getMin()< interval.getMin();
+	}
+
+	public boolean equalsMinsValues(Interval interval) {
+		return this.getMin()==interval.getMin();
 	}
 
 	public boolean intersectsWith(Interval interval) {
