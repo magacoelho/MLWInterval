@@ -17,17 +17,7 @@ public class IntervalRightOpened extends Interval{
 	}
 
 	public boolean includes(Interval interval) {
-		
-		
-		/*switch(interval.getOpening()){
-			case BOTH_OPENED: return ((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&((this.greaterMaxThan(interval)||this.equalsMaxValues(interval))));
-			case LEFT_OPENED:return ((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)));   
-        	case RIGHT_OPENED: return((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
-			case UNOPENED: return ((this.minorMinThan(interval)||this.equalsMinsValues(interval) )&&this.greaterMaxThan(interval));   
-			default: return false;
-		}*/
 		return interval.includes(this);
-		
 	}
 
 	public boolean intersectsWith(Interval interval) {
