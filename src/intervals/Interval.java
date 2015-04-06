@@ -84,5 +84,17 @@ public abstract class Interval {
 	public boolean equalsMaxValues(Interval interval) {
 		return this.getMax()==interval.getMax();
 	}
+
+	public boolean greaterMaxThan(Interval interval) {
+		return this.getMax()>interval.getMax();
+	}
+
+	public boolean minorMinThan(Interval interval) {
+		return this.getMin()< interval.getMin();
+	}
+
+	public boolean equalsMinsValues(Interval interval) {
+		return this.getMin()==interval.getMin();
+	}
     
 }
