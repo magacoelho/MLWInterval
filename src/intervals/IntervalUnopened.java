@@ -20,14 +20,14 @@ public class IntervalUnopened extends Interval{
 		
 		boolean equalsMaxs = this.getMax()==interval.getMax();
 		boolean equalsMins = this.getMin()==interval.getMin();
-		boolean includeMin= this.includes(interval.getMin());
-		boolean includeMax = this.includes(interval.getMax());
+		boolean includeMin= this.getMin()< interval.getMin();
+		boolean includeMax = this.getMax()>interval.getMax();
 		
 		switch(interval.getOpening()){
-			case BOTH_OPENED:return (includeMin &&includeMax);   
-			case LEFT_OPENED:return (includeMin &&includeMax);
-	    	case RIGHT_OPENED: return(includeMin &&includeMax);
-			case UNOPENED: return (includeMin &&includeMax);   
+			case BOTH_OPENED:   
+			case LEFT_OPENED:
+	    	case RIGHT_OPENED: 
+			case UNOPENED: return (includeMin||equalsMins )&&(includeMax||equalsMaxs); 
 			default: return false;
          }
 

@@ -19,13 +19,13 @@ public class IntervalLeftOpened extends Interval{
 		
 		boolean equalsMaxs = this.getMax()==interval.getMax();
 		boolean equalsMins = this.getMin()==interval.getMin();
-		boolean includeMin= this.includes(interval.getMin());
-		boolean includeMax = this.includes(interval.getMax());
+		boolean includeMin= this.getMin()< interval.getMin();
+		boolean includeMax = this.getMax()>interval.getMax();
 		switch(interval.getOpening()){
-			case BOTH_OPENED:return((includeMin||equalsMins) &&includeMax);
+			case BOTH_OPENED:return((includeMin||equalsMins) &&(includeMax||equalsMaxs));
 			case LEFT_OPENED: return ((includeMin||equalsMins)&&(includeMax||equalsMaxs));  
 	    	case RIGHT_OPENED:return (includeMin &&(includeMax||equalsMaxs));
-			case UNOPENED: return (includeMin&&includeMax);
+			case UNOPENED: return (includeMin&&(includeMax||equalsMaxs));
 			default: return false;
 		}	            
 
