@@ -17,16 +17,28 @@ public class IntervalLeftOpened extends Interval{
 
 	public boolean includes(Interval interval) {
 		
-		
-		switch(interval.getOpening()){
-			case BOTH_OPENED:return(this.minorMinOrEquals(interval) && this.greaterMaxOrEquals(interval));
-			case LEFT_OPENED: return (this.minorMinOrEquals(interval)&&this.greaterMaxOrEquals(interval));  
-	    	case RIGHT_OPENED:return (this.minorMinThan(interval) &&this.greaterMaxOrEquals(interval));
-			case UNOPENED: return (this.minorMinThan(interval)&&this.greaterMaxOrEquals(interval));
-			default: return false;
-		}	            
+		return interval.includes(this);           
 
 	
+	}
+	@Override
+	public boolean includes(IntervalBothOpened interval) {
+		return(this.minorMinOrEquals(interval) && this.greaterMaxOrEquals(interval));
+	}
+
+	@Override
+	public boolean includes(IntervalLeftOpened interval) {
+		return (this.minorMinOrEquals(interval)&&this.greaterMaxOrEquals(interval));
+	}
+
+	@Override
+	public boolean includes(IntervalRightOpened interval) {
+		return (this.minorMinThan(interval) &&this.greaterMaxOrEquals(interval));
+	}
+
+	@Override
+	public boolean includes(IntervalUnopened interval) {
+		return (this.minorMinThan(interval)&&this.greaterMaxOrEquals(interval));
 	}
 
 	public boolean intersectsWith(Interval interval) {
@@ -45,6 +57,8 @@ public class IntervalLeftOpened extends Interval{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 	
 

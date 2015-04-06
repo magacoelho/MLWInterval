@@ -72,10 +72,10 @@ public abstract class Interval {
 	}
 
 	public abstract boolean includes(Interval interval);
-	//public abstract boolean includes(IntervalBothOpened interval);
-	//public abstract boolean includes(IntervalLeftOpened interval);
-	//public abstract boolean includes(IntervalRightOpened interval);
-	//public abstract boolean includes(IntervalUnopened interval);
+	public abstract boolean includes(IntervalBothOpened interval);
+	public abstract boolean includes(IntervalLeftOpened interval);
+	public abstract boolean includes(IntervalRightOpened interval);
+	public abstract boolean includes(IntervalUnopened interval);
 	public abstract boolean includes(double value) ;
 
 	public abstract boolean intersectsWith(Interval interval) ;
@@ -84,25 +84,45 @@ public abstract class Interval {
 	public boolean equalsMaxValues(Interval interval) {
 		return this.getMax()==interval.getMax(); 
 	}
-
+    
 	public boolean greaterMaxThan(Interval interval) {
-		return this.getMax()>interval.getMax();
+		//return this.getMax()>interval.getMax();
+		return this.getMax()<interval.getMax();
 	}
-
-	public boolean minorMinThan(Interval interval) {
-		return this.getMin()< interval.getMin();
+	public boolean greaterMaxOrEquals(Interval interval) {
+		return this.greaterMaxThan(interval)||this.equalsMaxValues(interval);
 	}
 
 	public boolean equalsMinsValues(Interval interval) {
 		return this.getMin()==interval.getMin();
 	}
-
-	public boolean greaterMaxOrEquals(Interval interval) {
-		return this.greaterMaxThan(interval)||this.equalsMaxValues(interval);
+	public boolean minorMinThan(Interval interval) {
+		//return this.getMin()< interval.getMin();
+		return this.getMin()> interval.getMin();
 	}
 
 	public boolean minorMinOrEquals(Interval interval) {
 		return this.minorMinThan(interval)||equalsMinsValues(interval);
+	}
+
+
+	
+/////
+	public boolean greaterMinThan(Interval interval) {
+		//return this.getMax()>interval.getMax();
+		return this.getMin()>interval.getMin();
+	}
+
+	public boolean greaterMinOrEquals(Interval interval) {
+		return this.greaterMinThan(interval)||this.equalsMinsValues(interval);
+	}
+	public boolean minorMaxThan(Interval interval) {
+		//return this.getMin()< interval.getMin();
+		return this.getMax()< interval.getMax();
+	}
+
+	public boolean minorMaxOrEquals(Interval interval) {
+		return this.minorMaxThan(interval)||equalsMaxValues(interval);
 	}
     
 }

@@ -46,4 +46,28 @@ public class IntervalRightOpened extends Interval{
 		return null;
 	}
 
+	@Override
+	public boolean includes(IntervalBothOpened interval) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean includes(IntervalLeftOpened interval) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean includes(IntervalRightOpened interval) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean includes(IntervalUnopened interval) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
