@@ -22,7 +22,7 @@ public class IntervalLeftOpened extends Interval{
 			case BOTH_OPENED:return(this.minorMinOrEquals(interval) && this.greaterMaxOrEquals(interval));
 			case LEFT_OPENED: return (this.minorMinOrEquals(interval)&&this.greaterMaxOrEquals(interval));  
 	    	case RIGHT_OPENED:return (this.minorMinThan(interval) &&this.greaterMaxOrEquals(interval));
-			case UNOPENED: return (this.minorMinThan(interval))||this.equalsMaxValues(interval);
+			case UNOPENED: return (this.minorMinThan(interval)&&this.greaterMaxOrEquals(interval));
 			default: return false;
 		}	            
 
