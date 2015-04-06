@@ -51,7 +51,7 @@ public abstract class Interval {
 
 	public void setMin(double min) {
 		this.min = min;
-	}
+	} 
 
 	public double getMax() {
 		return max;
