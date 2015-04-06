@@ -33,13 +33,10 @@ public class IntervalBothOpened extends Interval{
 
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin() == interval.getMax()) {
-			
 				return false;
-			
-			}
-		
+		}
 		if (this.getMax() == interval.getMin()) {
-			return false;
+					return false;
 		}
 		return this.includes(interval.getMin())
 				|| this.includes(interval.getMax());
