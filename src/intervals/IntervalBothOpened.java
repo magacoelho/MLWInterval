@@ -16,7 +16,7 @@ public class IntervalBothOpened extends Interval{
 	}
 
 	public boolean includes(Interval interval) {
-		
+		 
 		switch(interval.getOpening()){
 			case BOTH_OPENED: return ((this.minorMinThan(interval)||equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
 			case LEFT_OPENED: return((this.minorMinThan(interval)||equalsMinsValues(interval))  &&this.greaterMaxThan(interval));  
