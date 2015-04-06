@@ -1,6 +1,6 @@
 package intervals;
 
-public class Interval {
+public abstract class Interval {
 	 private double min;
 	 private double max;
 	 private Opening opening;
@@ -155,9 +155,7 @@ public class Interval {
 		this.max = max;
 	}
 
-	public Opening getOpening() {
-		return opening;
-	}
+	public abstract Opening getOpening();
 
 	public void setOpening(Opening opening) {
 		this.opening = opening;
