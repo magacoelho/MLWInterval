@@ -35,32 +35,11 @@ public class IntervalRightOpened extends Interval{
 
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin() == interval.getMax()) {
-			switch (this.getOpening()) {
-			case BOTH_OPENED:
-			case LEFT_OPENED:
-				return false;
-			case RIGHT_OPENED:
-			case UNOPENED:
 				return interval.getOpening() == Opening.LEFT_OPENED ||
 						interval.getOpening() == Opening.UNOPENED;
-			default:
-				assert false;
-				return false;
-			}
 		}
 		if (this.getMax() == interval.getMin()) {
-			switch (this.getOpening()) {
-			case BOTH_OPENED:
-			case RIGHT_OPENED:
-				return false;
-			case LEFT_OPENED:
-			case UNOPENED:
-				return interval.getOpening() == Opening.RIGHT_OPENED ||
-						interval.getOpening() == Opening.UNOPENED;
-			default:
-				assert false;
-				return false;
-			}
+			return false;
 		}
 		return this.includes(interval.getMin())
 				|| this.includes(interval.getMax());
