@@ -96,5 +96,13 @@ public abstract class Interval {
 	public boolean equalsMinsValues(Interval interval) {
 		return this.getMin()==interval.getMin();
 	}
+
+	public boolean greaterMaxOrEquals(Interval interval) {
+		return this.greaterMaxThan(interval)||this.equalsMaxValues(interval);
+	}
+
+	public boolean minorMinOrEquals(Interval interval) {
+		return this.minorMinThan(interval)||equalsMinsValues(interval);
+	}
     
 }

@@ -26,14 +26,6 @@ public class IntervalBothOpened extends Interval{
 		}
 	}
 
-	public boolean greaterMaxOrEquals(Interval interval) {
-		return this.greaterMaxThan(interval)||this.equalsMaxValues(interval);
-	}
-
-	public boolean minorMinOrEquals(Interval interval) {
-		return this.minorMinThan(interval)||equalsMinsValues(interval);
-	}
-
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin() == interval.getMax()) {
 				return false;
