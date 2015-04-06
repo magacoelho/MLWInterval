@@ -12,14 +12,8 @@ public class IntervalLeftOpened extends Interval{
 	}
 
 	public boolean includes(double value) {
-		switch(this.getOpening()){
-		case BOTH_OPENED:return this.getMin()<value&& this.getMax()>value;
-		case LEFT_OPENED: return this.getMin()<value&&this.getMax()>=value;	            
-		case RIGHT_OPENED: return this.getMin()<=value&& this.getMax()>value;
-		case UNOPENED: return this.getMin()<=value&& this.getMax()>=value;
+		return this.getMin()<value&&this.getMax()>=value;	            
 		}
-		return false;
-	}
 
 	public boolean includes(Interval interval) {
 		
@@ -27,42 +21,15 @@ public class IntervalLeftOpened extends Interval{
 		boolean equalsMins = this.getMin()==interval.getMin();
 		boolean includeMin= this.includes(interval.getMin());
 		boolean includeMax = this.includes(interval.getMax());
-		switch(this.getOpening()){ 
-	    case BOTH_OPENED: 
-	    				switch(interval.getOpening()){
-							case BOTH_OPENED: return ((includeMin||equalsMins) &&(includeMax||equalsMaxs));
-							case LEFT_OPENED: return((includeMin||equalsMins)  &&includeMax);  
-			             	case RIGHT_OPENED:return (includeMin &&(includeMax||equalsMaxs));
-							case UNOPENED: return (includeMin &&includeMax);
-							default: return false;
-	    				}
-			
-		case LEFT_OPENED: 
-						switch(interval.getOpening()){
-							case BOTH_OPENED:return((includeMin||equalsMins) &&includeMax);
-							case LEFT_OPENED: return ((includeMin||equalsMins)&&(includeMax||equalsMaxs));  
-				        	case RIGHT_OPENED:return (includeMin &&(includeMax||equalsMaxs));
-							case UNOPENED: return (includeMin&&includeMax);
-							default: return false;
-						}	            
-		case RIGHT_OPENED: 
-						switch(interval.getOpening()){
-							case BOTH_OPENED: return ((includeMin) &&((includeMax||equalsMaxs)));
-							case LEFT_OPENED:return (includeMin &&(includeMax));   
-				        	case RIGHT_OPENED: return(includeMin &&(includeMax)||equalsMaxs);
-							case UNOPENED: return (includeMin &&includeMax);   
-							default: return false;
-					      }
-		case UNOPENED:
-						switch(interval.getOpening()){
-							case BOTH_OPENED:return (includeMin &&includeMax);   
-							case LEFT_OPENED:return (includeMin &&includeMax);
-					    	case RIGHT_OPENED: return(includeMin &&includeMax);
-							case UNOPENED: return (includeMin &&includeMax);   
-							default: return false;
-	                     }
-		}
-		return false;
+		switch(interval.getOpening()){
+			case BOTH_OPENED:return((includeMin||equalsMins) &&includeMax);
+			case LEFT_OPENED: return ((includeMin||equalsMins)&&(includeMax||equalsMaxs));  
+	    	case RIGHT_OPENED:return (includeMin &&(includeMax||equalsMaxs));
+			case UNOPENED: return (includeMin&&includeMax);
+			default: return false;
+		}	            
+
+	
 	}
 
 	public boolean intersectsWith(Interval interval) {

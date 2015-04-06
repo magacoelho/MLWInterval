@@ -12,13 +12,8 @@ public class IntervalRightOpened extends Interval{
 	}
 
 	public boolean includes(double value) {
-		switch(this.getOpening()){
-		case BOTH_OPENED:return this.getMin()<value&& this.getMax()>value;
-		case LEFT_OPENED: return this.getMin()<value&&this.getMax()>=value;	            
-		case RIGHT_OPENED: return this.getMin()<=value&& this.getMax()>value;
-		case UNOPENED: return this.getMin()<=value&& this.getMax()>=value;
-		}
-		return false;
+	  return this.getMin()<=value&& this.getMax()>value;
+		
 	}
 
 	public boolean includes(Interval interval) {
