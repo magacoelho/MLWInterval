@@ -11,15 +11,15 @@ public abstract class Interval {
 
 	public double midPoint() {
 	
-		return  (this.max+this.min)/2.0;
+		return  (this.getMax()+this.getMin())/2.0;
 	}
 
 	public boolean includes(double value) {
 		switch(this.getOpening()){
-		case BOTH_OPENED:return this.min<value&& this.max>value;
-		case LEFT_OPENED: return this.min<value&&this.max>=value;	            
-		case RIGHT_OPENED: return this.min<=value&& this.max>value;
-		case UNOPENED: return this.min<=value&& this.max>=value;
+		case BOTH_OPENED:return this.getMin()<value&& this.getMax()>value;
+		case LEFT_OPENED: return this.getMin()<value&&this.getMax()>=value;	            
+		case RIGHT_OPENED: return this.getMin()<=value&& this.getMax()>value;
+		case UNOPENED: return this.getMin()<=value&& this.getMax()>=value;
 		}
 		return false;
 	}
@@ -111,9 +111,9 @@ public abstract class Interval {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(max);
+		temp = Double.doubleToLongBits(this.getMax());
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(min);
+		temp = Double.doubleToLongBits(this.getMin());
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((this.getOpening() == null) ? 0 : this.getOpening().hashCode());
 		return result;
@@ -128,9 +128,9 @@ public abstract class Interval {
 		if (getClass() != obj.getClass())
 			return false;
 		Interval other = (Interval) obj;
-		if (Double.doubleToLongBits(max) != Double.doubleToLongBits(other.max))
+		if (Double.doubleToLongBits(this.getMax()) != Double.doubleToLongBits(other.getMax()))
 			return false;
-		if (Double.doubleToLongBits(min) != Double.doubleToLongBits(other.min))
+		if (Double.doubleToLongBits(this.getMin()) != Double.doubleToLongBits(other.getMin()))
 			return false;
 		if (this.getOpening() != other.getOpening())
 			return false;
@@ -159,7 +159,7 @@ public abstract class Interval {
 
 	@Override
 	public String toString() {
-		return "Interval [min=" + min + ", max=" + max + ", opening=" + this.getOpening()
+		return "Interval [min=" + this.getMin() + ", max=" + this.getMax() + ", opening=" + this.getOpening()
 				+ "]";
 	}
 	
