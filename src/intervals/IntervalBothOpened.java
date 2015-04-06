@@ -17,7 +17,7 @@ public class IntervalBothOpened extends Interval{
 
 	public boolean includes(Interval interval) {
 		
-		boolean equalsMaxs = this.getMax()==interval.getMax();
+		boolean equalsMaxs = equalsMaxs(interval);
 		boolean equalsMins = this.getMin()==interval.getMin();
 		boolean menorMin= this.getMin()< interval.getMin();
 		boolean mayorMax = this.getMax()>interval.getMax();
@@ -29,6 +29,10 @@ public class IntervalBothOpened extends Interval{
 			case UNOPENED: return (menorMin &&mayorMax);
 			default: return false;
 		}
+	}
+
+	private boolean equalsMaxs(Interval interval) {
+		return this.getMax()==interval.getMax();
 	}
 
 	public boolean intersectsWith(Interval interval) {
