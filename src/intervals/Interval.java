@@ -82,7 +82,7 @@ public abstract class Interval {
 	public abstract Interval intersection(Interval interval);
 
 	public boolean equalsMaxValues(Interval interval) {
-		return this.getMax()==interval.getMax();
+		return this.getMax()==interval.getMax(); 
 	}
 
 	public boolean greaterMaxThan(Interval interval) {
