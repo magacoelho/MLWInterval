@@ -17,17 +17,12 @@ public class IntervalUnopened extends Interval{
 	}
 
 	public boolean includes(Interval interval) {
-		
-		boolean equalsMaxs = this.getMax()==interval.getMax();
-		boolean equalsMins = this.getMin()==interval.getMin();
-		boolean menorMin= this.getMin()< interval.getMin();
-		boolean mayorMax = this.getMax()>interval.getMax();
-		
+			
 		switch(interval.getOpening()){
 			case BOTH_OPENED:   
 			case LEFT_OPENED:
 	    	case RIGHT_OPENED: 
-			case UNOPENED: return (menorMin||equalsMins )&&(mayorMax||equalsMaxs); 
+			case UNOPENED: return (this.minorMinThan(interval)||this.equalsMinsValues(interval))&&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)); 
 			default: return false;
          }
 

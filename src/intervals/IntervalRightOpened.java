@@ -18,16 +18,12 @@ public class IntervalRightOpened extends Interval{
 
 	public boolean includes(Interval interval) {
 		
-		boolean equalsMaxs = this.getMax()==interval.getMax();
-		boolean equalsMins = this.getMin()==interval.getMin();
-		boolean menorMin= this.getMin()< interval.getMin();
-		boolean mayorMax = this.getMax()>interval.getMax();
 		
 		switch(interval.getOpening()){
-			case BOTH_OPENED: return ((menorMin||equalsMins) &&((mayorMax||equalsMaxs)));
-			case LEFT_OPENED:return ((menorMin||equalsMins) &&(mayorMax));   
-        	case RIGHT_OPENED: return((menorMin||equalsMins) &&(mayorMax||equalsMaxs));
-			case UNOPENED: return ((menorMin||equalsMins )&&mayorMax);   
+			case BOTH_OPENED: return ((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&((this.greaterMaxThan(interval)||this.equalsMaxValues(interval))));
+			case LEFT_OPENED:return ((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)));   
+        	case RIGHT_OPENED: return((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
+			case UNOPENED: return ((this.minorMinThan(interval)||this.equalsMinsValues(interval) )&&this.greaterMaxThan(interval));   
 			default: return false;
 		}
 		
