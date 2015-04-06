@@ -43,7 +43,7 @@ public class IntervalBothOpened extends Interval{
 
 	@Override
 	public boolean includes(IntervalLeftOpened interval) {
-		return(this.greaterMinOrEquals(interval)  &&this.minorMinThan(interval)); 
+		return(this.greaterMinOrEquals(interval)  &&this.minorMaxOrEquals(interval)); 
 	}
 
 	@Override

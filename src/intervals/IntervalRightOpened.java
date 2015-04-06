@@ -48,14 +48,14 @@ public class IntervalRightOpened extends Interval{
 
 	@Override
 	public boolean includes(IntervalBothOpened interval) {
-		// TODO Auto-generated method stub
-		return false;
+		
+	    return this.greaterMinThan(interval)&&this.minorMaxOrEquals(interval);
 	}
 
 	@Override
 	public boolean includes(IntervalLeftOpened interval) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return this.greaterMinThan(interval)&&this.minorMaxOrEquals(interval);
 	}
 
 	@Override
