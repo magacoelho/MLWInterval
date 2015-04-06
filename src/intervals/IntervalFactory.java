@@ -9,23 +9,24 @@ public class IntervalFactory {
     public static Interval interval=null;
 	public static Interval getInterval(double min, double max, Opening opening) {
 		switch(opening){
-		case BOTH_OPENED:if(intervalBothOpened==null)
-			                  interval= new IntervalBothOpened(min, max);   
+		case BOTH_OPENED:
+			                  interval= new IntervalBothOpened(min, max); 
+			                  
 		                   break;
-		case LEFT_OPENED:if(intervalleftOpened==null)
+		case LEFT_OPENED:
                             interval= new IntervalLeftOpened(min, max);
 		                   break;
-    	case RIGHT_OPENED:if(intervalRightOpened==null)
+    	case RIGHT_OPENED:
                              interval= new IntervalRightOpened(min, max); 
     	                  break;
-		case UNOPENED: if(intervalUnopened==null)
+		case UNOPENED: 
                           interval= new IntervalUnopened(min, max);
 		               break;
 		default:  throw new IllegalArgumentException("Incorrect type code value");
 			
 		}
 		
-		
+		interval.setOpening(opening);
 		return interval;
 	}
 

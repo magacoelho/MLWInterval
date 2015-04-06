@@ -6,6 +6,11 @@ public class IntervalBothOpened extends Interval{
 		super(min, max);
 		}
 
+	@Override
+	public Opening getOpening() {
+		return Opening.BOTH_OPENED;
+	}
+
 	
 
 }

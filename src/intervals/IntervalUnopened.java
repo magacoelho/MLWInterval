@@ -7,6 +7,11 @@ public class IntervalUnopened extends Interval{
 		
 	}
 
+	@Override
+	public Opening getOpening() {
+		return Opening.UNOPENED;
+	}
+
 	
 
 }

@@ -6,4 +6,9 @@ public class IntervalRightOpened extends Interval{
 		super(min, max);
 		}
 
+	@Override
+	public Opening getOpening() {
+		return Opening.RIGHT_OPENED;
+	}
+
 }
