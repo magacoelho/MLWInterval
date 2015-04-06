@@ -17,21 +17,21 @@ public class IntervalBothOpened extends Interval{
 
 	public boolean includes(Interval interval) {
 		
-		boolean equalsMaxs = equalsMaxs(interval);
+		boolean equalsMaxs = equalsMaxValues(interval);
 		boolean equalsMins = this.getMin()==interval.getMin();
 		boolean menorMin= this.getMin()< interval.getMin();
 		boolean mayorMax = this.getMax()>interval.getMax();
 	
 		switch(interval.getOpening()){
-			case BOTH_OPENED: return ((menorMin||equalsMins) &&(mayorMax||equalsMaxs));
+			case BOTH_OPENED: return ((menorMin||equalsMins) &&(mayorMax||this.equalsMaxValues(interval)));
 			case LEFT_OPENED: return((menorMin||equalsMins)  &&mayorMax);  
-         	case RIGHT_OPENED:return (menorMin &&(mayorMax||equalsMaxs));
+         	case RIGHT_OPENED:return (menorMin &&(mayorMax||this.equalsMaxValues(interval)));
 			case UNOPENED: return (menorMin &&mayorMax);
 			default: return false;
 		}
 	}
 
-	private boolean equalsMaxs(Interval interval) {
+	public boolean equalsMaxValues(Interval interval) {
 		return this.getMax()==interval.getMax();
 	}
 
