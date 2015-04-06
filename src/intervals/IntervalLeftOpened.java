@@ -30,17 +30,17 @@ public class IntervalLeftOpened extends Interval{
 
 	@Override
 	public boolean includes(IntervalLeftOpened interval) {
-		return (this.minorMinOrEquals(interval)&&this.greaterMaxOrEquals(interval));
+		return (this.greaterMinOrEquals(interval)&&this.minorMaxOrEquals(interval));
 	}
 
 	@Override
 	public boolean includes(IntervalRightOpened interval) {
-		return (this.minorMinThan(interval) &&this.greaterMaxOrEquals(interval));
+		return (this.greaterMinOrEquals(interval) &&this.minorMaxThan(interval));
 	}
 
 	@Override
 	public boolean includes(IntervalUnopened interval) {
-		return (this.minorMinThan(interval)&&this.greaterMaxOrEquals(interval));
+		return (this.greaterMinOrEquals(interval) &&this.minorMaxOrEquals(interval));
 	}
 
 	public boolean intersectsWith(Interval interval) {

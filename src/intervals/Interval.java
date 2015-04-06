@@ -87,7 +87,7 @@ public abstract class Interval {
     
 	public boolean greaterMaxThan(Interval interval) {
 		//return this.getMax()>interval.getMax();
-		return this.getMax()<interval.getMax();
+		return this.getMax()>interval.getMax();
 	}
 	public boolean greaterMaxOrEquals(Interval interval) {
 		return this.greaterMaxThan(interval)||this.equalsMaxValues(interval);
@@ -98,7 +98,7 @@ public abstract class Interval {
 	}
 	public boolean minorMinThan(Interval interval) {
 		//return this.getMin()< interval.getMin();
-		return this.getMin()> interval.getMin();
+		return this.getMin()< interval.getMin();
 	}
 
 	public boolean minorMinOrEquals(Interval interval) {

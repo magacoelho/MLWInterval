@@ -19,13 +19,14 @@ public class IntervalRightOpened extends Interval{
 	public boolean includes(Interval interval) {
 		
 		
-		switch(interval.getOpening()){
+		/*switch(interval.getOpening()){
 			case BOTH_OPENED: return ((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&((this.greaterMaxThan(interval)||this.equalsMaxValues(interval))));
 			case LEFT_OPENED:return ((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)));   
         	case RIGHT_OPENED: return((this.minorMinThan(interval)||this.equalsMinsValues(interval)) &&(this.greaterMaxThan(interval)||this.equalsMaxValues(interval)));
 			case UNOPENED: return ((this.minorMinThan(interval)||this.equalsMinsValues(interval) )&&this.greaterMaxThan(interval));   
 			default: return false;
-		}
+		}*/
+		return interval.includes(this);
 		
 	}
 
@@ -60,14 +61,13 @@ public class IntervalRightOpened extends Interval{
 
 	@Override
 	public boolean includes(IntervalRightOpened interval) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return this.greaterMinOrEquals(interval)&&this.minorMaxOrEquals(interval) ;
 	}
 
 	@Override
 	public boolean includes(IntervalUnopened interval) {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.greaterMinOrEquals(interval) &&this.minorMaxOrEquals(interval));
 	}
 
 }
