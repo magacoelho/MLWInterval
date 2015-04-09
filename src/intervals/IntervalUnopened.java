@@ -2,7 +2,7 @@ package intervals;
 
 public class IntervalUnopened extends Interval{
 
-	public IntervalUnopened(double min, double max) {
+	public IntervalUnopened(Point min, Point max) {
 		super(min, max);
 		
 	}

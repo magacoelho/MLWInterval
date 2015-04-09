@@ -9,13 +9,13 @@ public class IntervalFactory {
 		                 interval= new IntervalBothOpened(new OpenedLeftPoint(min), new OpenedRightPoint(max)); 
 		                  break;
 		case LEFT_OPENED:
-                         interval= new IntervalLeftOpened(min, max);
+                         interval= new IntervalLeftOpened(new OpenedLeftPoint(min),new ClosedRightPoint(max));
 		                 break;
     	case RIGHT_OPENED:
-                         interval= new IntervalRightOpened(min, max); 
+                         interval= new IntervalRightOpened(new ClosedLeftPoint(min), new OpenedRightPoint(max));
     	                  break;
 		case UNOPENED: 
-                         interval= new IntervalUnopened(min, max);
+                         interval= new IntervalUnopened(new ClosedLeftPoint(min), new OpenedRightPoint(max));
 		               break;
 		default:  throw new IllegalArgumentException("Incorrect type code value");
 			
