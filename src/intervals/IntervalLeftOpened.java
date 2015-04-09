@@ -42,15 +42,15 @@ public class IntervalLeftOpened extends Interval{
 	}
 
 	public boolean intersectsWith(Interval interval) {
-		if (this.equalsValues(this.getMin(),interval.getMax())) {
+		if (this.getMin().equalsValues(interval.getMax())) {
 				return false;
 		}
-		if (this.equalsValues(this.getMax() ,interval.getMin())) {
+		if (this.getMax().equalsValues(interval.getMin())) {
 			return interval.getOpening() == Opening.RIGHT_OPENED ||
 						interval.getOpening() == Opening.UNOPENED;
 		}
-		return this.includes(interval.getMin())
-				|| this.includes(interval.getMax());
+		return this.includes(interval.getMin().getValue())
+				|| this.includes(interval.getMax().getValue());
 	}
 
 	public Interval intersection(Interval interval) {

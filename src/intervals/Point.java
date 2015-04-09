@@ -77,5 +77,10 @@ public class Point {
 		// TODO Auto-generated method stub
 		return this.getValue()>=value2;
 	}
+
+	public boolean minorOrEquals(double value2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }
