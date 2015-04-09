@@ -23,8 +23,6 @@ public class IntervalLeftOpened extends Interval{
 	}
 	@Override
 	public boolean includes(IntervalBothOpened interval) {
-		//return(this.minorMinOrEquals(interval) && this.greaterMaxOrEquals(interval));
-		//return(interval.minorMinOrEquals(this) && interval.greaterMaxOrEquals(this));
 		return this.greaterMinOrEquals(interval)&&this.minorMaxThan(interval);
 	}
 

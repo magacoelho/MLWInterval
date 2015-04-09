@@ -17,14 +17,6 @@ public class IntervalUnopened extends Interval{
 	}
 
 	public boolean includes(Interval interval) {
-		/*	
-		switch(interval.getOpening()){
-			case BOTH_OPENED:   
-			case LEFT_OPENED:
-	    	case RIGHT_OPENED: 
-			case UNOPENED: return this.minorMinOrEquals(interval)&&this.greaterMaxOrEquals(interval); 
-			default: return false;
-         }*/
 		return interval.includes(this);
 
 	}
