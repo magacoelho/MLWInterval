@@ -94,9 +94,14 @@ public abstract class Interval {
 	private boolean minorMinThan(double value1, double value2) {
 				return value1<value2;
 	}
-   
+    
+	public boolean greaterMaxThan(double value1, double value2){
+		 return value1>value2;
+	}
 	
-	
+	public boolean greaterOrEquals(double value1, double value2) {
+		return this.greaterMaxThan(value1, value2)||this.equalsValues(value1, value2);
+	}
 	
 	
 	public boolean equalsMaxValues(Interval interval) {
