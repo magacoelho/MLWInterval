@@ -14,4 +14,8 @@ public class Point {
 	public void setValue(double value) {
 		this.value=value;
 	}
+	
+	public boolean minorOrEquals(double value1, double value2) {
+		return this.minorThan( value1, value2)||equalsValues( value1, value2);
+	}
 }
