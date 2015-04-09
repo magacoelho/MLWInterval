@@ -81,6 +81,17 @@ public abstract class Interval {
 	public abstract boolean intersectsWith(Interval interval) ;
 	public abstract Interval intersection(Interval interval);
 
+	
+	
+	public boolean minorOrEquals(double value1, double value2) {
+		return this.minorMinThan( value1, value2)||equalsValues( value1, value2);
+	}
+	
+	private boolean minorMinThan(double value1, double value2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	public boolean equalsMaxValues(Interval interval) {
 		return this.getMax()==interval.getMax(); 
 	}
