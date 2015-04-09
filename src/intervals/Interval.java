@@ -6,7 +6,6 @@ public abstract class Interval {
 	public Interval(double min, double max) {
 		this.min=new Point(min);
 		this.max=new Point(max);
-		
 	}
 
 	public double midPoint() {
