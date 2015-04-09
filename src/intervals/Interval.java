@@ -3,11 +3,7 @@ package intervals;
 public abstract class Interval {
 	 private Point min;
 	 private Point max;
-	public Interval(Point min, Point max) {
-		this.min=min;
-		this.max=max;
-	}
-
+	
 	public double midPoint() {
 	
 		return  (this.getMax()+this.getMin())/2.0;
