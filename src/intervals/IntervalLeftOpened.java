@@ -12,7 +12,7 @@ public class IntervalLeftOpened extends Interval{
 	}
 
 	public boolean includes(double value) {
-		return this.getMin()<value&&this.getMax()>=value;	            
+		return this.minorThan(this.getMin(),value)&&this.greaterOrEquals(this.getMax(),value);	            
 		}
 
 	public boolean includes(Interval interval) {
@@ -42,10 +42,10 @@ public class IntervalLeftOpened extends Interval{
 	}
 
 	public boolean intersectsWith(Interval interval) {
-		if (this.getMin() == interval.getMax()) {
+		if (this.equalsValues(this.getMin(),interval.getMax())) {
 				return false;
 		}
-		if (this.getMax() == interval.getMin()) {
+		if (this.equalsValues(this.getMax() ,interval.getMin())) {
 			return interval.getOpening() == Opening.RIGHT_OPENED ||
 						interval.getOpening() == Opening.UNOPENED;
 		}

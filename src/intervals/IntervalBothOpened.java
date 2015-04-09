@@ -12,19 +12,18 @@ public class IntervalBothOpened extends Interval{
 	}
 
 	public boolean includes(double value) {
-		return this.getMin()<value&& this.getMax()>value;
+		return this.minorThan(this.getMin(),value)&& this.greaterThan(this.getMax(),value);
 	}
 
 	public boolean includes(Interval interval) {
-		 
 		return interval.includes(this);
 	}
 
 	public boolean intersectsWith(Interval interval) {
-		if (this.getMin() == interval.getMax()) {
+		if (this.equalsValues(this.getMin(), interval.getMax())) {
 				return false;
 		}
-		if (this.getMax() == interval.getMin()) {
+		if (this.equalsValues(this.getMax(),interval.getMin())) {
 					return false;
 		}
 		return this.includes(interval.getMin())
