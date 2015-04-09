@@ -84,23 +84,23 @@ public abstract class Interval {
 	
 	
 	public boolean minorOrEquals(double value1, double value2) {
-		return this.minorMinThan( value1, value2)||equalsValues( value1, value2);
+		return this.minorThan( value1, value2)||equalsValues( value1, value2);
 	}
 	
-	private boolean equalsValues(double value1, double value2) {
+	public boolean equalsValues(double value1, double value2) {
 		return value1==value2;
 	}
 
-	private boolean minorMinThan(double value1, double value2) {
+	public boolean minorThan(double value1, double value2) {
 				return value1<value2;
 	}
     
-	public boolean greaterMaxThan(double value1, double value2){
+	public boolean greaterThan(double value1, double value2){
 		 return value1>value2;
 	}
 	
 	public boolean greaterOrEquals(double value1, double value2) {
-		return this.greaterMaxThan(value1, value2)||this.equalsValues(value1, value2);
+		return this.greaterThan(value1, value2)||this.equalsValues(value1, value2);
 	}
 	
 	
