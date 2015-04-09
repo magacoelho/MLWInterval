@@ -1,11 +1,11 @@
 package intervals;
 
 public abstract class Interval {
-	 private double min;
-	 private double max;
+	 private Point min;
+	 private Point max;
 	public Interval(double min, double max) {
-		this.min= new Point(min);
-		this.max=max;
+		this.min=new Point(min);
+		this.max=new Point(max);
 		
 	}
 
@@ -46,19 +46,19 @@ public abstract class Interval {
 	}
 
 	public double getMin() {
-		return min; 
+		return min.getValue();
 	}
 
 	public void setMin(double min) {
-		this.min = min;
+		this.min.setValue(min);
 	} 
 
 	public double getMax() {
-		return max;
+		return max.getValue();
 	}
 
 	public void setMax(double max) {
-		this.max = max;
+		this.max.setValue(max);
 	}
 
 	public abstract Opening getOpening();
