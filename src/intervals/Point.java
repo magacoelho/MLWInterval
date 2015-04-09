@@ -62,5 +62,20 @@ public class Point {
 	public String toString() {
 		return "Point [value=" + value + "]";
 	}
+
+	public boolean greaterThan(double value2) {
+	
+		return this.getValue()>value2;
+	}
+
+	public boolean minorThan(double value2) {
+		
+		return false;
+	}
+
+	public boolean greaterOrEquals(double value2) {
+		// TODO Auto-generated method stub
+		return this.getValue()>=value2;
+	}
 	
 }

@@ -12,7 +12,7 @@ public class IntervalLeftOpened extends Interval{
 	}
 
 	public boolean includes(double value) {
-		return this.minorThan(this.getMin(),value)&&this.greaterOrEquals(this.getMax(),value);	            
+		return this.getMin().minorThan(value)&&this.getMax().greaterOrEquals(value);	            
 		}
 
 	public boolean includes(Interval interval) {
@@ -23,7 +23,7 @@ public class IntervalLeftOpened extends Interval{
 	}
 	@Override
 	public boolean includes(IntervalBothOpened interval) {
-		return this.greaterOrEquals(this.getMin(), interval.getMin())&&this.minorThan(this.getMax(), interval.getMax());
+		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorThan(interval.getMax());
 	}
 
 	@Override
