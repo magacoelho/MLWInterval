@@ -88,15 +88,17 @@ public abstract class Interval {
 	}
 	
 	private boolean equalsValues(double value1, double value2) {
-		// TODO Auto-generated method stub
-		return false;
+		return value1==value2;
 	}
 
 	private boolean minorMinThan(double value1, double value2) {
-		// TODO Auto-generated method stub
-		return false;
+				return value1<value2;
 	}
-
+   
+	
+	
+	
+	
 	public boolean equalsMaxValues(Interval interval) {
 		return this.getMax()==interval.getMax(); 
 	}
