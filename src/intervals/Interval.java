@@ -46,7 +46,7 @@ public abstract class Interval {
 	}
 
 	public double getMin() {
-		return min;
+		return min; 
 	}
 
 	public void setMin(double min) {
