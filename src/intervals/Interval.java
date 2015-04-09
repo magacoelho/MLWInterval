@@ -1,8 +1,8 @@
 package intervals;
 
 public abstract class Interval {
-	 private Point min;
-	 private Point max;
+	 protected Point min;
+	 protected Point max;
 	
 	public double midPoint() {
 	
