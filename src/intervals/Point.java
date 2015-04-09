@@ -7,7 +7,7 @@ public class Point {
 	}
 
 	public double getValue() {
-		// TODO Auto-generated method stub
+	
 		return this.value;
 	}
 
@@ -25,6 +25,12 @@ public class Point {
 	public boolean minorThan(Point p) {
 				return this.getValue()<p.getValue();
 	}
+	public boolean greaterThan(Point p){
+		 return this.getValue()>p.getValue();
+	}
 	
+	public boolean greaterOrEquals(Point p) {
+		return this.greaterThan(p)||this.equalsValues(p);
+	}
 	
 }
