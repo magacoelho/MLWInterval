@@ -15,7 +15,16 @@ public class Point {
 		this.value=value;
 	}
 	
-	public boolean minorOrEquals(double value1, double value2) {
-		return this.minorThan( value1, value2)||equalsValues( value1, value2);
+	public boolean minorOrEquals(Point p) {
+		return this.minorThan(p)||equalsValues(p);
 	}
+	public boolean equalsValues(Point p) {
+		return this.getValue()==p.getValue();
+	}
+
+	public boolean minorThan(Point p) {
+				return this.getValue()<p.getValue();
+	}
+	
+	
 }
