@@ -4,7 +4,7 @@ public abstract class Interval {
 	 private double min;
 	 private double max;
 	public Interval(double min, double max) {
-		this.min=min;
+		this.min= new Point(min);
 		this.max=max;
 		
 	}
