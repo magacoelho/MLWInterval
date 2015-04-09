@@ -3,9 +3,8 @@ package intervals;
 public class IntervalBothOpened extends Interval{
 
 	public IntervalBothOpened(double min, double max) {
-		super();
-		this.min= new UnExactPoint(min);
-		this.max= new UnExactPoint(max);
+		super(min, max);
+		//min= new UnExactPoint(value)
 		}
 
 	@Override
