@@ -9,7 +9,14 @@ public abstract class Interval {
 		
 	}
 
-	
+
+	public Interval(Point min, Point max) {
+		super();
+		this.min = min;
+		this.max = max;
+	}
+
+
 	public double midPoint() {
 	
 		return  (this.getMax()+this.getMin())/2.0;
