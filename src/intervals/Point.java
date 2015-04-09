@@ -69,18 +69,16 @@ public class Point {
 	}
 
 	public boolean minorThan(double value2) {
-		
-		return false;
+		return this.value<value2;
 	}
 
 	public boolean greaterOrEquals(double value2) {
-		// TODO Auto-generated method stub
+	
 		return this.getValue()>=value2;
 	}
 
 	public boolean minorOrEquals(double value2) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.value<=value2;
 	}
 	
 }
