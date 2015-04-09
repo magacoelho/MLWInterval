@@ -33,12 +33,12 @@ public class IntervalLeftOpened extends Interval{
 
 	@Override
 	public boolean includes(IntervalRightOpened interval) {
-		return (this.greaterOrEquals(this.getMin(), interval.getMin()) &&this.minorThan(this.getMax(), interval.getMax()));
+		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorThan(interval.getMax()));
 	}
 
 	@Override
 	public boolean includes(IntervalUnopened interval) {
-		return (this.greaterOrEquals(this.getMin(), interval.getMin()) &&this.minorOrEquals(this.getMax(), interval.getMax()));
+		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
 	}
 
 	public boolean intersectsWith(Interval interval) {

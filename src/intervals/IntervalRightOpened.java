@@ -52,12 +52,12 @@ public class IntervalRightOpened extends Interval{
 	@Override
 	public boolean includes(IntervalRightOpened interval) {
 		
-		return this.greaterOrEquals(this.getMin(), interval.getMin())&&this.minorOrEquals(this.getMax(), interval.getMax()) ;
+		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorOrEquals(interval.getMax()) ;
 	}
 
 	@Override
 	public boolean includes(IntervalUnopened interval) {
-		return (this.greaterOrEquals(this.getMin(), interval.getMin()) &&this.minorOrEquals(this.getMax(), interval.getMax()));
+		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
 	}
 
 }
