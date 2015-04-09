@@ -3,13 +3,6 @@ package intervals;
 public abstract class Interval {
 	 private Point min;
 	 private Point max;
-	public Interval(double min, double max) {
-		this.min=new Point(min);
-		this.max=new Point(max);
-		
-	}
-
-
 	public Interval(Point min, Point max) {
 		super();
 		this.min = min;
@@ -17,57 +10,48 @@ public abstract class Interval {
 	}
 
 
+	public Point getMin() {
+		return min;
+	}
+
+
+	public void setMin(Point min) {
+		this.min = min;
+	}
+
+
+	public Point getMax() {
+		return max;
+	}
+
+
+	public void setMax(Point max) {
+		this.max = max;
+	}
+
+
 	public double midPoint() {
 	
-		return  (this.getMax()+this.getMin())/2.0;
+		return  (this.getMax().getValue()+this.getMin().getValue())/2.0;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(this.getMax());
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(this.getMin());
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((this.getOpening() == null) ? 0 : this.getOpening().hashCode());
-		return result;
-	}
+	
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Interval other = (Interval) obj;
-		if (Double.doubleToLongBits(this.getMax()) != Double.doubleToLongBits(other.getMax()))
-			return false;
-		if (Double.doubleToLongBits(this.getMin()) != Double.doubleToLongBits(other.getMin()))
-			return false;
-		if (this.getOpening() != other.getOpening())
-			return false;
-		return true;
-	}
-
-	public double getMin() {
-		return min.getValue();
-	}
-
-	public void setMin(double min) {
-		this.min.setValue(min);
-	} 
-
-	public double getMax() {
-		return max.getValue();
-	}
-
-	public void setMax(double max) {
-		this.max.setValue(max);
-	}
+//	public double getMin() {
+//		return min.getValue();
+//	}
+//
+//	public void setMin(double min) {
+//		this.min.setValue(min);
+//	} 
+//
+//	public double getMax() {
+//		return max.getValue();
+//	}
+//
+//	public void setMax(double max) {
+//		this.max.setValue(max);
+//	}
 
 	public abstract Opening getOpening();
 
