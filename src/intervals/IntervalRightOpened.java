@@ -40,24 +40,24 @@ public class IntervalRightOpened extends Interval{
 	@Override
 	public boolean includes(IntervalBothOpened interval) {
 		
-	    return this.greaterMinThan(interval)&&this.minorMaxOrEquals(interval);
+	    return this.greaterThan(this.getMin(), interval.getMin())&&this.minorOrEquals(this.getMax(), interval.getMax());
 	}
 
 	@Override
 	public boolean includes(IntervalLeftOpened interval) {
 		
-		return this.greaterMinThan(interval)&&this.minorMaxOrEquals(interval);
+		return this.greaterThan(this.getMin(), interval.getMin())&&this.minorOrEquals(this.getMax(), interval.getMax());
 	}
 
 	@Override
 	public boolean includes(IntervalRightOpened interval) {
 		
-		return this.greaterMinOrEquals(interval)&&this.minorMaxOrEquals(interval) ;
+		return this.greaterOrEquals(this.getMin(), interval.getMin())&&this.minorOrEquals(this.getMax(), interval.getMax()) ;
 	}
 
 	@Override
 	public boolean includes(IntervalUnopened interval) {
-		return (this.greaterMinOrEquals(interval) &&this.minorMaxOrEquals(interval));
+		return (this.greaterOrEquals(this.getMin(), interval.getMin()) &&this.minorOrEquals(this.getMax(), interval.getMax()));
 	}
 
 }
