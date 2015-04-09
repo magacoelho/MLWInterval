@@ -2,8 +2,8 @@ package intervals;
 
 public class IntervalBothOpened extends Interval{
 
-	public IntervalBothOpened(double min, double max) {
-		super(min, max);
+	public IntervalBothOpened(Point  min, Point max) {
+		super(min,max);
 		}
 
 	@Override
