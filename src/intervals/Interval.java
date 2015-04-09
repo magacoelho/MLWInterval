@@ -87,6 +87,11 @@ public abstract class Interval {
 		return this.minorMinThan( value1, value2)||equalsValues( value1, value2);
 	}
 	
+	private boolean equalsValues(double value1, double value2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	private boolean minorMinThan(double value1, double value2) {
 		// TODO Auto-generated method stub
 		return false;
