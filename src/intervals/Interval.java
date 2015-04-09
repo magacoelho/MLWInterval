@@ -3,9 +3,9 @@ package intervals;
 public abstract class Interval {
 	 private Point min;
 	 private Point max;
-	public Interval(double min, double max) {
-		this.min=new Point(min);
-		this.max=new Point(max);
+	public Interval(Point min, Point max) {
+		this.min=min;
+		this.max=max;
 	}
 
 	public double midPoint() {
