@@ -123,27 +123,11 @@ public abstract class Interval {
 		return this.greaterThan(value1, value2)||this.equalsValues(value1, value2);
 	}
 
-	public abstract boolean includes(Interval interval);
-
-	public boolean includes(IntervalBothOpened interval) {
+	public boolean includes(Interval interval){
 		
 		return this.getMin().greaterOrEquals(interval.getMin())&& this.getMax().minorOrEquals(interval.getMax());
 	}
 
-
-	public boolean includes(IntervalLeftOpened interval) {
-		return(this.getMin().greaterOrEquals(interval.getMin())  &&this.getMax().minorOrEquals(interval.getMax())); 
-	}
-
-
-	public boolean includes(IntervalRightOpened interval) {
-		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
-	}
-
-
-	public boolean includes(IntervalUnopened interval) {
-		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
-	}
 	
 	
 //	public boolean equalsMaxValues(Interval interval) {
