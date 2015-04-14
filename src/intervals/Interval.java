@@ -97,10 +97,6 @@ public abstract class Interval {
 	}
 
 	public abstract boolean includes(Interval interval);
-	public abstract boolean includes(IntervalBothOpened interval);
-	public abstract boolean includes(IntervalLeftOpened interval);
-	public abstract boolean includes(IntervalRightOpened interval);
-	public abstract boolean includes(IntervalUnopened interval);
 	public abstract boolean includes(double value) ;
 
 	public abstract boolean intersectsWith(Interval interval) ;
@@ -126,6 +122,31 @@ public abstract class Interval {
 	
 	public boolean greaterOrEquals(double value1, double value2) {
 		return this.greaterThan(value1, value2)||this.equalsValues(value1, value2);
+	}
+
+
+	@Override
+	public boolean includes(IntervalBothOpened interval) {
+		
+		return this.getMin().greaterOrEquals(interval.getMin())&& this.getMax().minorOrEquals(interval.getMax());
+	}
+
+
+	@Override
+	public boolean includes(IntervalLeftOpened interval) {
+		return(this.getMin().greaterOrEquals(interval.getMin())  &&this.getMax().minorOrEquals(interval.getMax())); 
+	}
+
+
+	@Override
+	public boolean includes(IntervalRightOpened interval) {
+		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
+	}
+
+
+	@Override
+	public boolean includes(IntervalUnopened interval) {
+		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
 	}
 	
 	

@@ -37,27 +37,4 @@ public class IntervalRightOpened extends Interval{
 		return null;
 	}
 
-	@Override
-	public boolean includes(IntervalBothOpened interval) {
-		
-	    return this.getMin().greaterOrEquals( interval.getMin())&&this.getMax().minorOrEquals(interval.getMax());
-	}
-
-	@Override
-	public boolean includes(IntervalLeftOpened interval) {
-		
-		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorOrEquals(interval.getMax());
-	}
-
-	@Override
-	public boolean includes(IntervalRightOpened interval) {
-		
-		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorOrEquals(interval.getMax()) ;
-	}
-
-	@Override
-	public boolean includes(IntervalUnopened interval) {
-		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
-	}
-
 }
