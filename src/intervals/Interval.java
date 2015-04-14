@@ -69,29 +69,7 @@ public abstract class Interval {
 	public abstract Interval intersection(Interval interval);
 
 	
-	
-	public boolean minorOrEquals(double value1, double value2) {
-		return this.minorThan( value1, value2)||equalsValues( value1, value2);
-	}
-	
-	public boolean equalsValues(double value1, double value2) {
-		return value1==value2;
-	}
-
-	public boolean minorThan(double value1, double value2) {
-				return value1<value2;
-	}
-    
-	public boolean greaterThan(double value1, double value2){
-		 return value1>value2;
-	}
-	
-	public boolean greaterOrEquals(double value1, double value2) {
-		return this.greaterThan(value1, value2)||this.equalsValues(value1, value2);
-	}
-
 	public boolean includes(Interval interval){
-		
 		return this.getMin().minorOrEquals(interval.getMin())&& this.getMax().greaterOrEquals(interval.getMax());
 	}
 
