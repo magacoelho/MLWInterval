@@ -9,53 +9,24 @@ public abstract class Interval {
 		this.max = max;
 	}
 
-
 	public Point getMin() {
 		return min;
 	}
-
-
 	public void setMin(Point min) {
 		this.min = min;
 	}
-
-
 	public Point getMax() {
 		return max;
 	}
-
-
 	public void setMax(Point max) {
 		this.max = max;
 	}
 
-
 	public double midPoint() {
-	
 		return  (this.getMax().getValue()+this.getMin().getValue())/2.0;
 	}
 
-	
-
-//	public double getMin() {
-//		return min.getValue();
-//	}
-//
-//	public void setMin(double min) {
-//		this.min.setValue(min);
-//	} 
-//
-//	public double getMax() {
-//		return max.getValue();
-//	}
-//
-//	public void setMax(double max) {
-//		this.max.setValue(max);
-//	}
-
 	public abstract Opening getOpening();
-
-	
 
 	@Override
 	public int hashCode() {
@@ -65,8 +36,6 @@ public abstract class Interval {
 		result = prime * result + ((min == null) ? 0 : min.hashCode());
 		return result;
 	}
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
