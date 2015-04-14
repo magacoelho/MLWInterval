@@ -18,22 +18,22 @@ public class PointOpened extends Point {
 
 	@Override
 	public boolean minorOrEquals(PointOpened p) {
-			return this.minorOrEquals(p);
+			return p.getValue() <= this.getValue();
 	}
 
 	@Override
 	public boolean minorOrEquals(PointClosed p) {
-		return minorThan(p);
+		return p.getValue() < this.getValue();
 	}
 
 	@Override
 	public boolean greaterOrEquals(PointOpened p) {
-			return this.greaterOrEquals(p);
+			return p.getValue() >= this.getValue();
 	}
 
 	@Override
 	public boolean greaterOrEquals(PointClosed p) {
-		return this.greaterThan(p);
+		return p.getValue() > this.getValue();
 	}
 
 }
