@@ -12,7 +12,9 @@ public class IntervalBothOpened extends Interval{
 	}
 
 	public boolean includes(double value) {
-		return this.getMin().minorThan(value)&& this.getMax().greaterThan(value);
+		Point p = new PointClosed(value);
+		return this.getMin().minorOrEquals(p)&&this.getMax().greaterOrEquals(p);
+		//return this.getMin().minorThan(value)&& this.getMax().greaterThan(value);
 	}
 
 	
