@@ -11,14 +11,6 @@ public class IntervalBothOpened extends Interval{
 		return Opening.BOTH_OPENED;
 	}
 
-	public boolean includes(double value) {
-		Point p = new PointClosed(value);
-		return this.getMin().minorOrEquals(p)&&this.getMax().greaterOrEquals(p);
-		//return this.getMin().minorThan(value)&& this.getMax().greaterThan(value);
-	}
-
-	
-
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin().equalsValues(interval.getMax())) {
 				return false;

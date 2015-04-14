@@ -11,11 +11,6 @@ public class IntervalLeftOpened extends Interval{
 	    return Opening.LEFT_OPENED;
 	}
 
-	public boolean includes(double value) {
-		 return this.getMin().minorThan(value)&&this.getMax().greaterOrEquals(value);	            
-		}
-
-	
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin().equalsValues(interval.getMax())) {
 				return false;

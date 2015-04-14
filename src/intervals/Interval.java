@@ -96,8 +96,6 @@ public abstract class Interval {
 				+ "]";
 	}
 
-	public abstract boolean includes(double value) ;
-
 	public abstract boolean intersectsWith(Interval interval) ;
 	public abstract Interval intersection(Interval interval);
 
@@ -126,5 +124,11 @@ public abstract class Interval {
 	public boolean includes(Interval interval){
 		
 		return this.getMin().minorOrEquals(interval.getMin())&& this.getMax().greaterOrEquals(interval.getMax());
+	}
+
+
+	public boolean includes(double value) {
+		Point p = new PointClosed(value);
+		return this.getMin().minorOrEquals(p)&&this.getMax().greaterOrEquals(p);
 	}
 }
