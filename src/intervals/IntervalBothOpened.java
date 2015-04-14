@@ -16,6 +16,7 @@ public class IntervalBothOpened extends Interval{
 	}
 
 	
+
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin().equalsValues(interval.getMax())) {
 				return false;

@@ -23,13 +23,6 @@ public abstract class Point {
 		return this.getValue()==p.getValue();
 	}
 
-	public boolean minorThan(Point p) {
-				return this.getValue()<p.getValue();
-	}
-	public boolean greaterThan(Point p){
-		 return this.getValue()>p.getValue();
-	}
-	
 	public abstract boolean greaterOrEquals(Point p);
 	public abstract boolean greaterOrEquals(PointOpened p);
 	public abstract boolean greaterOrEquals(PointClosed p);
