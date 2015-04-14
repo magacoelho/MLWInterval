@@ -41,17 +41,17 @@ public class IntervalUnopened extends Interval{
 
 	@Override
 	public boolean includes(IntervalBothOpened interval) {
-		return this.getMin().greaterThan(interval.getMin())&&this.getMax().minorThan( interval.getMax());
+		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorOrEquals( interval.getMax());
 	}
 
 	@Override
 	public boolean includes(IntervalLeftOpened interval) {
-		return this.getMin().greaterThan(interval.getMin())&&this.getMax().minorOrEquals(interval.getMax());
+		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorOrEquals(interval.getMax());
 	}
 
 	@Override
 	public boolean includes(IntervalRightOpened interval) {
-		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorThan(interval.getMax());
+		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorOrEquals(interval.getMax());
 	}
 
 	@Override

@@ -23,7 +23,7 @@ public class IntervalLeftOpened extends Interval{
 	}
 	@Override
 	public boolean includes(IntervalBothOpened interval) {
-		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorThan(interval.getMax());
+		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorOrEquals(interval.getMax());
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class IntervalLeftOpened extends Interval{
 
 	@Override
 	public boolean includes(IntervalRightOpened interval) {
-		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorThan(interval.getMax()));
+		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
 	}
 
 	@Override
