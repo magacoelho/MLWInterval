@@ -16,10 +16,7 @@ public class IntervalUnopened extends Interval{
 		 return this.getMin().minorOrEquals(value)&& this.getMax().greaterOrEquals(value);
 	}
 
-	public boolean includes(Interval interval) {
-		return interval.includes(this);
-
-	}
+	
 
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin().equalsValues(interval.getMax())) {

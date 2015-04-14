@@ -16,9 +16,7 @@ public class IntervalRightOpened extends Interval{
 		
 	}
 
-	public boolean includes(Interval interval) {
-		return interval.includes(this);
-	}
+	
 
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin().equalsValues(interval.getMax())) {
