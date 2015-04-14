@@ -6,10 +6,10 @@ public class IntervalFactory {
 	public static Interval getInterval(double min, double max, Opening opening) {
 		switch(opening){
 		case BOTH_OPENED:
-		                 interval= new IntervalBothOpened(new OpenedLeftPoint(min), new OpenedRightPoint(max)); 
+		                 interval= new IntervalBothOpened(new PointOpened(min), new OpenedRightPoint(max)); 
 		                  break;
 		case LEFT_OPENED:
-                         interval= new IntervalLeftOpened(new OpenedLeftPoint(min),new ClosedRightPoint(max));
+                         interval= new IntervalLeftOpened(new PointOpened(min),new PointClosed(max));
 		                 break;
     	case RIGHT_OPENED:
                          interval= new IntervalRightOpened(new ClosedLeftPoint(min), new OpenedRightPoint(max));

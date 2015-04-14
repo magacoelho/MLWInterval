@@ -1,8 +1,8 @@
 package intervals;
 
-public class OpenedRightPoint extends Point{
+public class PointClosed extends Point{
 
-	public OpenedRightPoint(double value) {
+	public PointClosed(double value) {
 		super(value);
 		// TODO Auto-generated constructor stub
 	}
