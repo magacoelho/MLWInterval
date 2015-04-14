@@ -16,4 +16,28 @@ public class PointOpened extends Point {
 		return this.greaterThan(p)||this.equalsValues(p);
 	}
 
+	@Override
+	public boolean minorOrEquals(PointOpened p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean minorOrEquals(PointClosed p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean greaterOrEquals(PointOpened p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean greaterOrEquals(PointClosed p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
