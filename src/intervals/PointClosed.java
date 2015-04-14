@@ -24,7 +24,7 @@ public class PointClosed extends Point{
 
 	@Override
 	public boolean minorOrEquals(PointClosed p) {
-		return this.minorThan(p);
+		return this.getValue()< p.getValue();
 	}
 
 	@Override
