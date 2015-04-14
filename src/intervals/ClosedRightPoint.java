@@ -7,4 +7,8 @@ public class ClosedRightPoint extends Point{
 		// TODO Auto-generated constructor stub
 	}
 
+	public boolean minorOrEquals(Point p) {
+		return this.minorThan(p)||equalsValues(p);
+	}
+
 }

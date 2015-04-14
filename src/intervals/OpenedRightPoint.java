@@ -7,4 +7,8 @@ public class OpenedRightPoint extends Point{
 		
 	}
 
+	public boolean minorOrEquals(Point p) {
+		return this.minorThan(p)||equalsValues(p);
+	}
+
 }

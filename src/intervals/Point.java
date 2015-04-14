@@ -14,10 +14,13 @@ public class Point {
 	public void setValue(double value) {
 		this.value=value;
 	}
-	
+
 	public boolean minorOrEquals(Point p) {
 		return this.minorThan(p)||equalsValues(p);
 	}
+	
+	
+	
 	public boolean equalsValues(Point p) {
 		return this.getValue()==p.getValue();
 	}
