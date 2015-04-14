@@ -125,6 +125,6 @@ public abstract class Interval {
 
 	public boolean includes(Interval interval){
 		
-		return this.getMin().greaterOrEquals(interval.getMin())&& this.getMax().minorOrEquals(interval.getMax());
+		return this.getMin().minorOrEquals(interval.getMin())&& this.getMax().greaterOrEquals(interval.getMax());
 	}
 }
