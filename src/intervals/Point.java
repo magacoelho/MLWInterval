@@ -56,22 +56,8 @@ public abstract class Point {
 		return "Point [value=" + value + "]";
 	}
 
-	public boolean greaterThan(double value2) {
 	
-		return this.getValue()>value2;
-	}
 
-	public boolean minorThan(double value2) {
-		return this.value<value2;
-	}
-
-	public boolean greaterOrEquals(double value2) {
 	
-		return this.getValue()>=value2;
-	}
-
-	public boolean minorOrEquals(double value2) {
-		return this.value<=value2;
-	}
 	
 }
