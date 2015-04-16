@@ -12,35 +12,12 @@ public class IntervalLeftOpened extends Interval{
 	}
 
 	public boolean includes(double value) {
-		return this.getMin().minorThan(value)&&this.getMax().greaterOrEquals(value);	            
+		Point p = new PointClosed(value);
+		return this.getMin().minorOrEquals(p)&&this.getMax().greaterOrEquals(p);
+		
 		}
 
-	public boolean includes(Interval interval) {
-		
-		return interval.includes(this);           
-
 	
-	}
-	@Override
-	public boolean includes(IntervalBothOpened interval) {
-		return this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorThan(interval.getMax());
-	}
-
-	@Override
-	public boolean includes(IntervalLeftOpened interval) {
-		return (this.getMin().greaterOrEquals(interval.getMin())&&this.getMax().minorOrEquals(interval.getMax()));
-	}
-
-	@Override
-	public boolean includes(IntervalRightOpened interval) {
-		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorThan(interval.getMax()));
-	}
-
-	@Override
-	public boolean includes(IntervalUnopened interval) {
-		return (this.getMin().greaterOrEquals(interval.getMin()) &&this.getMax().minorOrEquals(interval.getMax()));
-	}
-
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin().equalsValues(interval.getMax())) {
 				return false;
@@ -51,6 +28,8 @@ public class IntervalLeftOpened extends Interval{
 		}
 		return this.includes(interval.getMin().getValue())
 				|| this.includes(interval.getMax().getValue());
+		
+
 	}
 
 	public Interval intersection(Interval interval) {

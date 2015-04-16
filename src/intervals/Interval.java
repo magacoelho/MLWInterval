@@ -9,53 +9,24 @@ public abstract class Interval {
 		this.max = max;
 	}
 
-
 	public Point getMin() {
 		return min;
 	}
-
-
 	public void setMin(Point min) {
 		this.min = min;
 	}
-
-
 	public Point getMax() {
 		return max;
 	}
-
-
 	public void setMax(Point max) {
 		this.max = max;
 	}
 
-
 	public double midPoint() {
-	
 		return  (this.getMax().getValue()+this.getMin().getValue())/2.0;
 	}
 
-	
-
-//	public double getMin() {
-//		return min.getValue();
-//	}
-//
-//	public void setMin(double min) {
-//		this.min.setValue(min);
-//	} 
-//
-//	public double getMax() {
-//		return max.getValue();
-//	}
-//
-//	public void setMax(double max) {
-//		this.max.setValue(max);
-//	}
-
 	public abstract Opening getOpening();
-
-	
 
 	@Override
 	public int hashCode() {
@@ -65,8 +36,6 @@ public abstract class Interval {
 		result = prime * result + ((min == null) ? 0 : min.hashCode());
 		return result;
 	}
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -96,79 +65,17 @@ public abstract class Interval {
 				+ "]";
 	}
 
-	public abstract boolean includes(Interval interval);
-	public abstract boolean includes(IntervalBothOpened interval);
-	public abstract boolean includes(IntervalLeftOpened interval);
-	public abstract boolean includes(IntervalRightOpened interval);
-	public abstract boolean includes(IntervalUnopened interval);
-	public abstract boolean includes(double value) ;
-
 	public abstract boolean intersectsWith(Interval interval) ;
 	public abstract Interval intersection(Interval interval);
 
 	
-	
-	public boolean minorOrEquals(double value1, double value2) {
-		return this.minorThan( value1, value2)||equalsValues( value1, value2);
-	}
-	
-	public boolean equalsValues(double value1, double value2) {
-		return value1==value2;
+	public boolean includes(Interval interval){
+		return this.getMin().minorOrEquals(interval.getMin())&& this.getMax().greaterOrEquals(interval.getMax());
 	}
 
-	public boolean minorThan(double value1, double value2) {
-				return value1<value2;
+
+	public boolean includes(double value) {
+		Point p = new PointClosed(value);
+		return this.getMin().minorOrEquals(p)&&this.getMax().greaterOrEquals(p);
 	}
-    
-	public boolean greaterThan(double value1, double value2){
-		 return value1>value2;
-	}
-	
-	public boolean greaterOrEquals(double value1, double value2) {
-		return this.greaterThan(value1, value2)||this.equalsValues(value1, value2);
-	}
-	
-	
-//	public boolean equalsMaxValues(Interval interval) {
-//		return this.getMax()==interval.getMax(); 
-//	}
-//    
-//	public boolean greaterMaxThan(Interval interval) {
-//		return this.getMax()>interval.getMax();
-//	}
-//	public boolean greaterMaxOrEquals(Interval interval) {
-//		return this.greaterMaxThan(interval)||this.equalsMaxValues(interval);
-//	}
-//
-//	public boolean equalsMinsValues(Interval interval) {
-//		return this.getMin()==interval.getMin();
-//	}
-//	public boolean minorMinThan(Interval interval) {
-//			return this.getMin()< interval.getMin();
-//	}
-//
-//	public boolean minorMinOrEquals(Interval interval) {
-//		return this.minorMinThan(interval)||equalsMinsValues(interval);
-//	}
-//
-//
-//	
-///////
-//	public boolean greaterMinThan(Interval interval) {
-//		
-//		return this.getMin()>interval.getMin();
-//	}
-//
-//	public boolean greaterMinOrEquals(Interval interval) {
-//		return this.greaterMinThan(interval)||this.equalsMinsValues(interval);
-//	}
-//	public boolean minorMaxThan(Interval interval) {
-//	
-//		return this.getMax()< interval.getMax();
-//	}
-//
-//	public boolean minorMaxOrEquals(Interval interval) {
-//		return this.minorMaxThan(interval)||equalsMaxValues(interval);
-//	}
-//    
 }

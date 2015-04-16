@@ -1,10 +1,10 @@
 package intervals;
 
-public class Point {
-     private double value; 
+public abstract class Point {
+    private double value; 
 	public Point(double value) {
 		this.value=value;
-	}
+	 }
 
 	public double getValue() {
 	
@@ -14,26 +14,17 @@ public class Point {
 	public void setValue(double value) {
 		this.value=value;
 	}
-
-	public boolean minorOrEquals(Point p) {
-		return this.minorThan(p)||equalsValues(p);
-	}
 	
+	public abstract boolean minorOrEquals(Point p);
+	public abstract boolean minorOrEquals(PointOpened p);
+	public abstract boolean minorOrEquals(PointClosed p);
 	
+	public abstract boolean greaterOrEquals(Point p);
+	public abstract boolean greaterOrEquals(PointOpened p);
+	public abstract boolean greaterOrEquals(PointClosed p);
 	
-	public boolean equalsValues(Point p) {
+		public boolean equalsValues(Point p) {
 		return this.getValue()==p.getValue();
-	}
-
-	public boolean minorThan(Point p) {
-				return this.getValue()<p.getValue();
-	}
-	public boolean greaterThan(Point p){
-		 return this.getValue()>p.getValue();
-	}
-	
-	public boolean greaterOrEquals(Point p) {
-		return this.greaterThan(p)||this.equalsValues(p);
 	}
 
 	@Override
@@ -66,22 +57,8 @@ public class Point {
 		return "Point [value=" + value + "]";
 	}
 
-	public boolean greaterThan(double value2) {
 	
-		return this.getValue()>value2;
-	}
 
-	public boolean minorThan(double value2) {
-		return this.value<value2;
-	}
-
-	public boolean greaterOrEquals(double value2) {
 	
-		return this.getValue()>=value2;
-	}
-
-	public boolean minorOrEquals(double value2) {
-		return this.value<=value2;
-	}
 	
 }
