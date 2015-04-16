@@ -11,6 +11,13 @@ public class IntervalLeftOpened extends Interval{
 	    return Opening.LEFT_OPENED;
 	}
 
+	public boolean includes(double value) {
+		Point p = new PointClosed(value);
+		return this.getMin().minorOrEquals(p)&&this.getMax().greaterOrEquals(p);
+		
+		}
+
+	
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin().equalsValues(interval.getMax())) {
 				return false;
@@ -21,6 +28,8 @@ public class IntervalLeftOpened extends Interval{
 		}
 		return this.includes(interval.getMin().getValue())
 				|| this.includes(interval.getMax().getValue());
+		
+
 	}
 
 	public Interval intersection(Interval interval) {

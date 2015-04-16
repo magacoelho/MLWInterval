@@ -14,7 +14,7 @@ public class IntervalUnopened extends Interval{
 
 	public boolean intersectsWith(Interval interval) {
 		if (this.getMin().equalsValues(interval.getMax())) {
-			return interval.getOpening() == Opening.LEFT_OPENED ||
+		return interval.getOpening() == Opening.LEFT_OPENED ||
 						interval.getOpening() == Opening.UNOPENED;
 		}
 		if (this.getMax().equalsValues(interval.getMin())) {
@@ -22,7 +22,8 @@ public class IntervalUnopened extends Interval{
 						interval.getOpening() == Opening.UNOPENED;
 		}
 		return this.includes(interval.getMin().getValue())
-				|| this.includes(interval.getMax().getValue());
+			|| this.includes(interval.getMax().getValue());
+
 	}
 
 	public Interval intersection(Interval interval) {

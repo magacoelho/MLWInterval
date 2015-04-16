@@ -20,6 +20,7 @@ public class IntervalBothOpened extends Interval{
 		}
 		return this.includes(interval.getMin().getValue())
 				|| this.includes(interval.getMax().getValue());
+	
 	}
 
 	public Interval intersection(Interval interval) {

@@ -1,10 +1,10 @@
 package intervals;
 
 public abstract class Point {
-     private double value; 
+    private double value; 
 	public Point(double value) {
 		this.value=value;
-	}
+	 }
 
 	public double getValue() {
 	
@@ -19,13 +19,14 @@ public abstract class Point {
 	public abstract boolean minorOrEquals(PointOpened p);
 	public abstract boolean minorOrEquals(PointClosed p);
 	
+	public abstract boolean greaterOrEquals(Point p);
+	public abstract boolean greaterOrEquals(PointOpened p);
+	public abstract boolean greaterOrEquals(PointClosed p);
+	
 	public boolean equalsValues(Point p) {
 		return this.getValue()==p.getValue();
 	}
 
-	public abstract boolean greaterOrEquals(Point p);
-	public abstract boolean greaterOrEquals(PointOpened p);
-	public abstract boolean greaterOrEquals(PointClosed p);
 	@Override
 	public int hashCode() {
 		final int prime = 31;
